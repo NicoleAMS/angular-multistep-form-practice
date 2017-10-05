@@ -17,7 +17,7 @@ import { ResultComponent } from './form/result/result.component';
 import { AppRoutingModule } from './app-routing.module';
 
 // Services
-import { FormDataService } from './form-data.service';
+import { FormDataService } from './form/data/form-data.service';
 
 @NgModule({
   declarations: [

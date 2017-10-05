@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormDataService } from './form-data.service';
+import { FormDataService } from './form/data/form-data.service';
 
 @Component({
   selector: 'app-root',

@@ -5,4 +5,6 @@ export class FormDataService {
 
   constructor() { }
 
+  getFormData() {}
+
 }

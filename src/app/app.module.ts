@@ -3,22 +3,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+// App root
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
+// Feature components
 import { PersonalComponent } from './form/personal/personal.component';
 import { WorkComponent } from './form/work/work.component';
 import { AddressComponent } from './form/address/address.component';
 import { ResultComponent } from './form/result/result.component';
 
-import { FormDataService } from './form-data.service';
+// Routing module
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
-  { path: '', component: AppComponent},
-  { path: 'personal', component: PersonalComponent },
-  { path: 'work', component: WorkComponent },
-  { path: 'address', component: AddressComponent },
-  { path: 'result', component: ResultComponent }
-];
+// Services
+import { FormDataService } from './form-data.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [FormDataService],
   bootstrap: [AppComponent]

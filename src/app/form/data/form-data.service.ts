@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormData, Personal, Address } from './form-data.model';
+import { WorkflowService } from '../../workflow/workflow.service';
+import { STEPS } from '../../workflow/workflow.model';
 
 @Injectable()
 export class FormDataService {
@@ -8,7 +10,7 @@ export class FormDataService {
   private isWorkFormValid = false;
   private isAddressFormValid = false;
 
-  constructor() { }
+  constructor(private workflowService: WorkflowService) { }
 
   getPersonal(): Personal {
     // Return Personal data
@@ -26,6 +28,7 @@ export class FormDataService {
     this.formData.firstName = data.firstName;
     this.formData.lastName = data.lastName;
     this.formData.email = data.email;
+    this.workflowService.validateStep(STEPS.personal);
   }
 
   getWork(): string {
@@ -35,6 +38,7 @@ export class FormDataService {
   setWork(data: string) {
     this.isWorkFormValid = true;
     this.formData.work = data;
+    this.workflowService.validateStep(STEPS.work);
   }
 
   getAddress(): Address {
@@ -53,6 +57,7 @@ export class FormDataService {
     this.formData.city = data.city;
     this.formData.state = data.state,
     this.formData.zip = data.zip;
+    this.workflowService.validateStep(STEPS.address);
   }
 
   getFormData(): FormData {
@@ -60,6 +65,7 @@ export class FormDataService {
   }
 
  resetFormData(): FormData {
+    this.workflowService.resetSteps();
     this.formData.clear();
     this.isPersonalFormValid = this.isWorkFormValid = this.isAddressFormValid = false;
     return this.formData;

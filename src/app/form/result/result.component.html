@@ -52,5 +52,15 @@
   <br>
   <div class="text-center">
     <button class="btn btn-success btn-outline-rounded" [disabled]="!isFormValid" (click)="submit()"> Submit <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+    <button class="btn btn-info btn-outline-rounded" (click)="click()" type="button">Find address</button>
+  </div>
+
+  <div>
+    <div ngbDropdown class="d-block">
+      <button class="btn btn-primary" id="addressDropdown" ngbDropdownToggle>Choose your address</button>
+      <div ngbDropdownMenu aria-labelledby="addressDropdown">
+        <button type="button" class="dropdown-item" *ngFor="let address of addressArray">{{ address }}</button>
+      </div>
+    </div>
   </div>
 </div>

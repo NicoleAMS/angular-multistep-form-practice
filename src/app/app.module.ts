@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // App root
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Feature components
 import { PersonalComponent } from './form/personal/personal.component';
@@ -32,7 +34,9 @@ import { WorkflowService } from './workflow/workflow.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [FormDataService, WorkflowService],
   bootstrap: [AppComponent]

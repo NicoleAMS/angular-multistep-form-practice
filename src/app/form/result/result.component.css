@@ -1,0 +1,9 @@
+.dropdown-item {
+    display: block;
+    border: none;
+    background-color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #F4F3F4;
+}
